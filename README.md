@@ -23,7 +23,7 @@ Permite registrar libros, estudiantes y préstamos, incorporando validaciones y 
 ## 🛠️ Tecnologías utilizadas
 
 - Lenguaje: Java 23 (JDK 23) 
-- Gstor de Dependencias: Apache Maven  
+- Gestor de Dependencias: Apache Maven  
 - IDE: Visual Studio Code  
 - Modelado: UML (Diagrama de Clases)
 
@@ -41,17 +41,6 @@ Permite registrar libros, estudiantes y préstamos, incorporando validaciones y 
 - Cálculo de multa mediante recursividad  
 
 ---
-
-## 📂 Estructura del proyecto
-
-- `model` → clases principales (Libro, Estudiante, Prestamo)  
-- `service` → lógica de negocio  
-- `exception` → excepciones personalizadas  
-- `ui` → clase Main (interfaz de ejecución)  
-
----
-
-## 📊 Diagrama UML
 
 ## 📂 Estructura del proyecto
 
