@@ -10,12 +10,12 @@ public class Main {
         BibliotecaServicio bibliotecaServicio = new BibliotecaServicio();
 
         // crear libros (5)
-        Libro l1 = new Libro("1", "El Quijote", "Autor A", 2020, true);
-        Libro l2 = new Libro("2", "Cervantes", "Autor B", 2019, true);
-        Libro l3 = new Libro("3", "Don Quijote", "Autor C", 2021, true);
-        Libro l4 = new Libro("4", "La vida de Cervantes", "Autor D", 2018, true);
-        Libro l5 = new Libro("5", "El ingenioso hidalgo Don Quijote de la Mancha", "Autor E", 2022, true);
-        Libro l6 = new Libro("6", "El Quijote de la Mancha", "Autor F", 2023, true);
+        Libro l1 = new Libro("Cervantes", "Autor A", "1", 2020, true);
+        Libro l2 = new Libro("Don Quijote", "Autor B", "2", 2019, true);
+        Libro l3 = new Libro("La vida de Cervantes", "Autor C", "3", 2021, true);
+        Libro l4 = new Libro("El ingenioso hidalgo Don Quijote de la Mancha", "Autor D", "4", 2018, true);
+        Libro l5 = new Libro("El Quijote de la Mancha", "Autor E", "5", 2022, true);
+        Libro l6 = new Libro("La celosa imagina", "Autor F", "6", 2023, true);
 
         // agregar libros a la biblioteca
         bibliotecaServicio.agregarLibro(l1);
@@ -48,21 +48,21 @@ public class Main {
 
         // probar excepciones
 
-        // registrar un préstamo con un estudiante que no existe
+        // estudianre inexistente
         try {
             bibliotecaServicio.registrarPrestamo("A4", "4"); // Estudiante no existe
         } catch (EstudianteNoEncontradoException | LibroNoDisponibleException | LimitePrestamosExcedidoException e) {
             System.out.println("Error: " + e.getMessage());
         }
 
-        // registrar un préstamo con un libro que no existe
+        // libro inexistente
         try {
             bibliotecaServicio.registrarPrestamo("A1", "9"); // Libro no existe
         } catch (EstudianteNoEncontradoException | LibroNoDisponibleException | LimitePrestamosExcedidoException e) {
             System.out.println("Error: " + e.getMessage());
         }
 
-        // registrar un préstamo con un libro que no está disponible
+        // libro no disponible
         try {
             bibliotecaServicio.registrarPrestamo("A1", "1"); // Libro no disponible
         } catch (EstudianteNoEncontradoException | LibroNoDisponibleException | LimitePrestamosExcedidoException e) {

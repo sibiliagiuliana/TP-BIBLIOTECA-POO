@@ -64,9 +64,11 @@ public class BibliotecaServicio {
         int contador = 0;
         for (Prestamo prestamo : prestamos) {
             if (prestamo.getEstudiante().getLegajo().equals(legajo)) {
+                System.out.println(prestamo);
                 contador++;
             }
         }
+        System.out.println("Cantidad de préstamos actuales para el estudiante: " + contador);
         if (contador >= 3) {
             throw new LimitePrestamosExcedidoException("El estudiante ha excedido el límite de préstamos.");
         }
@@ -74,6 +76,7 @@ public class BibliotecaServicio {
         Prestamo prestamo = new Prestamo(estudiante, libro, java.time.LocalDate.now(), null);
         prestamos.add(prestamo);
         libro.setDisponible(false);
+        System.out.println("Préstamo registrado con éxito.");
         } 
 
 
@@ -101,10 +104,10 @@ public class BibliotecaServicio {
             }
         }
 
-        public void buscarLibrosPorTitulo(String texto) {
-            System.out.println("Libros encontrados con el título '" + texto + "':");
+        public void buscarLibrosPorTitulo(String titulo) {
+            System.out.println("Libros encontrados con el título '" + titulo + "':");
             for (Libro libro : catalogo) {
-                if (libro.getTitulo().toLowerCase().contains(texto.toLowerCase())) {
+                if (libro.getTitulo().toLowerCase().contains(titulo.toLowerCase())) {
                     System.out.println(libro);
                 }
             }
@@ -112,6 +115,7 @@ public class BibliotecaServicio {
 
         public void listarPrestamosPorEstudiante(String legajo) {
             System.out.println("Préstamos del estudiante con legajo '" + legajo + "':");
+            
             for (Prestamo prestamo : prestamos) {
                 if (prestamo.getEstudiante().getLegajo().equals(legajo)) {
                     System.out.println(prestamo);
@@ -129,7 +133,8 @@ public class BibliotecaServicio {
                 diasRetraso = 30; // Limitar el retraso a 30 días
             }
             // caso recursivo
-            return valorLibro * 0.01 * diasRetraso + calcularMulta(diasRetraso - 1, valorLibro);
+            return (valorLibro * 0.01) + calcularMulta(diasRetraso - 1, valorLibro);
+            
 
         }
 
